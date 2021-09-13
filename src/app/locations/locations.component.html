@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="row mb-5">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Search</label>
+            <input type="text" class="form-control" [(ngModel)]="textSearch" (keyup)="search()"
+                placeholder="enter the text to search">
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td (click)="sortBy('location.city')"> city
+                </td>
+                <td  (click)="sortBy('location.state')"> state
+                </td>
+                <td  (click)="sortBy('location.country')"> country
+                </td>
+                <td (click)="sortBy('location.postcode')"> postcode
+                </td>
+                <td (click)="sortBy('location.street.number')"> number
+                </td>
+                <td  (click)="sortBy('name.first')"> name
+                </td>
+                <td  (click)="sortBy('coordinates.latitude')"> latitude
+                </td>
+                <td (click)="sortBy('coordinates.longitude')"> longitude
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persons">
+                <th scope="row">{{person.location!.city}}</th>
+                <th scope="row">{{person.location!.state}}</th>
+                <th scope="row">{{person.location!.country}}</th>
+                <th scope="row">{{person.location!.postcode}}</th>
+                <th scope="row">{{person.location!.street!.number}}</th>
+                <th scope="row">{{person.name!.first}}</th>
+                <th scope="row">{{person.location!.coordinates!.latitude}}</th>
+                <th scope="row">{{person.location!.coordinates!.longitude}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
